@@ -40,6 +40,7 @@ function LoadMore() {
             width={56}
             height={56}
             className="object-contain"
+            style={{ width: 'auto', height: 'auto' }} // Added to fix aspect ratio warning
           />
         </div>
       </section>
