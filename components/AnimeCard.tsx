@@ -37,15 +37,16 @@ function AnimeCard({ anime, index }: Prop) {
         ease: "easeInOut",
         duration: 0.5,
       }}
-      viewport= {{ amount: 0 }}
+      viewport={{ amount: 0 }}
       className="max-w-sm rounded relative w-full"
-      >
+    >
       <div className="relative w-full h-[37vh]">
         <Image
           src={`https://shikimori.one${anime.image.original}`}
           alt={anime.name}
           fill
           className="rounded-xl"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw" // Added to fix performance warning
         />
       </div>
       <div className="py-4 flex flex-col gap-3">
@@ -67,6 +68,7 @@ function AnimeCard({ anime, index }: Prop) {
               width={20}
               height={20}
               className="object-contain"
+              style={{ width: 'auto', height: 'auto' }} // Added to fix aspect ratio warning
             />
             <p className="text-base text-white font-bold">
               {anime.episodes || anime.episodes_aired}
@@ -79,6 +81,7 @@ function AnimeCard({ anime, index }: Prop) {
               width={18}
               height={18}
               className="object-contain"
+              style={{ width: 'auto', height: 'auto' }} // Added to fix aspect ratio warning
             />
             <p className="text-base font-bold text-[#FFAD49]">{anime.score}</p>
           </div>
