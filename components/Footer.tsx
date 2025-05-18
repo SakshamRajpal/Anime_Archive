@@ -10,6 +10,7 @@ function Footer() {
         width={47}
         height={44}
         className="object-contain"
+        style={{ width: 'auto', height: 'auto' }} // Added to fix aspect ratio warning
       />
       <div className="flex items-center gap-6">
         <Image
@@ -18,6 +19,7 @@ function Footer() {
           width={19}
           height={19}
           className="object-contain"
+          style={{ width: 'auto', height: 'auto' }} // Added to fix aspect ratio warning
         />
         <Image
           src="./instagram.svg"
@@ -25,6 +27,7 @@ function Footer() {
           width={19}
           height={19}
           className="object-contain"
+          style={{ width: 'auto', height: 'auto' }} // Added to fix aspect ratio warning
         />
         <Image
           src="./twitter.svg"
@@ -32,6 +35,7 @@ function Footer() {
           width={19}
           height={19}
           className="object-contain"
+          style={{ width: 'auto', height: 'auto' }} // Added to fix aspect ratio warning
         />
       </div>
     </footer>
