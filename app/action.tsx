@@ -2,11 +2,29 @@
 
 import AnimeCard, { AnimeProp } from "@/components/AnimeCard";
 
+interface AniListMedia {
+    id: number;
+    title: {
+        romaji: string;
+    };
+    coverImage: {
+        large: string;
+    };
+    episodes: number | null;
+    averageScore: number | null;
+    type: string;
+}
+
 export const fetchAnime = async (page: number) => {
     try {
+        if (!process.env.ANILIST_ACCESS_TOKEN) {
+            console.error("ANILIST_ACCESS_TOKEN is not set in environment variables");
+            return [];
+        }
+
         const query = `
-            query {
-                Page(page: ${page}, perPage: 8) {
+            query ($page: Int) {
+                Page(page: $page, perPage: 8) {
                     media(type: ANIME, sort: POPULARITY_DESC) {
                         id
                         title { romaji }
@@ -18,16 +36,17 @@ export const fetchAnime = async (page: number) => {
                 }
             }
         `;
+        const variables = { page };
+
         const response = await fetch("https://graphql.anilist.co", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json",
                 // "User-Agent": "Anime_Archive (sakshamrajpal20585@gmail.com)",
-                // // Added Authorization and user-agent header as using OAuth2
-                "Authorization": `Bearer ${process.env.ANILIST_ACCESS_TOKEN}`,
+                // "Authorization": `Bearer ${process.env.ANILIST_ACCESS_TOKEN}`,
             },
-            body: JSON.stringify({ query }),
+            body: JSON.stringify({ query, variables }),
             cache: "no-store",
         });
 
@@ -38,9 +57,9 @@ export const fetchAnime = async (page: number) => {
         }
 
         const { data } = await response.json();
-        const animes = data?.Page?.media || [];
+        const animes: AniListMedia[] = data?.Page?.media || [];
 
-        return animes.map((item: any, index: number) => {
+        return animes.map((item: AniListMedia, index: number) => {
             const animeProp: AnimeProp = {
                 id: item.id.toString(),
                 name: item.title.romaji,
@@ -48,7 +67,7 @@ export const fetchAnime = async (page: number) => {
                 kind: item.type,
                 episodes: item.episodes || 0,
                 episodes_aired: item.episodes || 0,
-                score: (item.averageScore / 10).toFixed(1), // Convert AniList score (0-100) to Shikimori scale (0-10)
+                score: item.averageScore ? (item.averageScore / 10).toFixed(1) : "0.0",
             };
             return <AnimeCard key={item.id} anime={animeProp} index={index} />;
         });
