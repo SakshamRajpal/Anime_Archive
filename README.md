@@ -37,7 +37,7 @@ Welcome to **"Anime Archive"** – a beautifully crafted platform where you can 
 
 ## 📸 Demo:
 
-🌐 Live Preview: 
+🌐 Live Preview: https://anime-archive-six.vercel.app/
 
 ---
 
