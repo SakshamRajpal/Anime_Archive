@@ -1,12 +1,12 @@
 # 🌸 Anime Archive
 
-Welcome to **Anime Archive** – a beautifully crafted platform where you can **endlessly scroll through your favorite anime posters**! Powered by the [AniList API](https://anilist.gitbook.io/anilist-apiv2-docs/), this project blends speed, animation, and aesthetics into one seamless experience for anime lovers.
+Welcome to **"Anime Archive"** – a beautifully crafted platform where you can **endlessly scroll through your favorite anime posters**! Powered by the [AniList API](https://anilist.gitbook.io/anilist-apiv2-docs/), this project blends speed, animation, and aesthetics into one seamless experience for anime lovers.
 
-![Anime Archive Screenshot](./public/demo-screenshot.png)
+![Screenshot 2025-05-18 161507](https://github.com/user-attachments/assets/18ea2725-c568-41e0-ba45-b0c7640e182f)
 
 ---
 
-## 🚀 Features
+## 🚀 Features:
 
 - 🔄 **Infinite Scrolling** of anime posters
 - ⚙️ **OAuth Integration** for secure and optimized API usage
@@ -17,7 +17,7 @@ Welcome to **Anime Archive** – a beautifully crafted platform where you can **
 
 ---
 
-## 🛠️ Technologies Used
+## 🛠️ Technologies Used:
 
 - **Next.js** – for SSR and routing
 - **Framer Motion** – for client-side animations
@@ -27,7 +27,7 @@ Welcome to **Anime Archive** – a beautifully crafted platform where you can **
 
 ---
 
-## 📚 What I Learned
+## 📚 What I Learned:
 
 - How to implement **OAuth 2.0** with user-agent headers to bypass rate limitations
 - Effective usage of **Server-side Rendering (SSR)** along with **Client-side Rendering (CSR)**
@@ -35,35 +35,37 @@ Welcome to **Anime Archive** – a beautifully crafted platform where you can **
 
 ---
 
-## 📸 Demo
+## 📸 Demo:
 
-🌐 Live Preview: _Coming Soon_  
-📽️ [Click here to view demo video](#) _(optional)_
+🌐 Live Preview: 
 
 ---
 
-## 📂 Getting Started
+## 📂 To run this project locally:
 
-To run this project locally:
-
+- **Clone the repository**
 ```bash
-# Clone the repository
 git clone https://github.com/SakshamRajpal/Anime_Archive.git
 cd Anime_Archive
+```
 
-# Install dependencies
+- **Install dependencies**
+```bash
 npm install
+```
 
-# Run the development server
+- **Run the development server**
+```bash
 npm run dev
 ```
+
 ---
 
 ## 🤝 Contributing
 
 - Found a bug or want to contribute?
 - Feel free to fork the repo, make changes, and open a pull request.
-⭐ If you like this project, consider giving it a star!
+- ⭐ If you like this project, consider giving it a star!
 
 
 
