@@ -25,9 +25,6 @@ const variants = {
 
 function AnimeCard({ anime, index }: Prop) {
   return (
-    //This is server side-rendered but we have to make 
-    // the motion client-side-rendered
-    //For that define a different "MotionDiv.tsx" file
     <MotionDiv
       variants={variants}
       initial="hidden"
@@ -42,11 +39,12 @@ function AnimeCard({ anime, index }: Prop) {
     >
       <div className="relative w-full h-[37vh]">
         <Image
-          src={`https://shikimori.one${anime.image.original}`}
+          src={anime.image?.original || '/assets/globals/missing_original.jpg'}
           alt={anime.name}
           fill
           className="rounded-xl"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw" // Added to fix performance warning
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+          unoptimized // Added to bypass Vercel's image optimization
         />
       </div>
       <div className="py-4 flex flex-col gap-3">
@@ -68,7 +66,7 @@ function AnimeCard({ anime, index }: Prop) {
               width={20}
               height={20}
               className="object-contain"
-              style={{ width: 'auto', height: 'auto' }} // Added to fix aspect ratio warning
+              style={{ width: 'auto', height: 'auto' }}
             />
             <p className="text-base text-white font-bold">
               {anime.episodes || anime.episodes_aired}
@@ -81,7 +79,7 @@ function AnimeCard({ anime, index }: Prop) {
               width={18}
               height={18}
               className="object-contain"
-              style={{ width: 'auto', height: 'auto' }} // Added to fix aspect ratio warning
+              style={{ width: 'auto', height: 'auto' }}
             />
             <p className="text-base font-bold text-[#FFAD49]">{anime.score}</p>
           </div>
