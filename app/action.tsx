@@ -23,9 +23,9 @@ export const fetchAnime = async (page: number) => {
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json",
-                // "User-Agent": "Anime_Archive (sakshamrajpal20585@gmail.com)",
+                "User-Agent": "Anime_Archive (sakshamrajpal20585@gmail.com)",
                 // // Added Authorization and user-agent header as using OAuth2
-                // "Authorization": `Bearer ${process.env.ANILIST_ACCESS_TOKEN}`,
+                "Authorization": `Bearer ${process.env.ANILIST_ACCESS_TOKEN}`,
             },
             body: JSON.stringify({ query }),
             cache: "no-store",
